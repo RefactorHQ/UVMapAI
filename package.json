@@ -1,0 +1,55 @@
+{
+  "name": "texture-enhancer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Open-source web app for AI-assisted texture repainting and enhancement.",
+  "scripts": {
+    "prepare:gltf-viewer": "node scripts/prepare-gltf-viewer.mjs",
+    "postinstall": "npm run prepare:gltf-viewer",
+    "dev": "npm run prepare:gltf-viewer && next dev",
+    "build": "npm run prepare:gltf-viewer && next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "npm run lint && npm run test && npm run build"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  },
+  "dependencies": {
+    "@google/genai": "^1.44.0",
+    "@khronosgroup/gltf-viewer": "^1.1.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "gl-matrix": "^3.4.4",
+    "gltf-validator": "^2.0.0-dev.3.10",
+    "jszip": "^3.10.1",
+    "konva": "^10.2.0",
+    "lucide-react": "^0.577.0",
+    "next": "16.1.6",
+    "normalize-wheel": "^1.0.1",
+    "react": "19.2.3",
+    "react-compare-slider": "^3.1.0",
+    "react-dom": "19.2.3",
+    "react-konva": "^19.2.3",
+    "rxjs": "^7.8.2",
+    "simple-dropzone": "^0.8.3",
+    "three": "^0.183.2"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/three": "^0.183.1",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "fake-indexeddb": "^6.2.5",
+    "jsdom": "^28.1.0",
+    "typescript": "^5",
+    "vitest": "^4.0.18"
+  }
+}

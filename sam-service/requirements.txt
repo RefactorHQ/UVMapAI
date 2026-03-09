@@ -1,0 +1,10 @@
+accelerate
+fastapi
+numpy
+pillow
+safetensors
+sentencepiece
+torch
+torchvision
+transformers
+uvicorn[standard]

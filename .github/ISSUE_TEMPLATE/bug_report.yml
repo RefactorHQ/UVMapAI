@@ -1,0 +1,42 @@
+name: Bug report
+description: Report a reproducible problem with Texture Enhancer.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a problem. Please include enough detail for maintainers to reproduce it quickly.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the bug and the result you expected instead.
+      placeholder: When I upload a glTF bundle, the scene fails to load and shows...
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Provide a minimal sequence of actions that reproduces the issue.
+      placeholder: |
+        1. Open the app
+        2. Upload...
+        3. Click...
+        4. Observe...
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, OS, Node version, Docker usage, and anything else relevant.
+      placeholder: Ubuntu 24.04, Chrome 134, Node 22, running via Docker Compose
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Paste stack traces, console logs, or screenshots if available.
+      render: shell

@@ -1,0 +1,91 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: texture-enhancer:latest
+    container_name: texture-enhancer
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      GEMINI_API_KEY: "${GEMINI_API_KEY:-}"
+      SAM3_BASE_URL: "${SAM3_BASE_URL:-http://sam-service:8000}"
+      ASSET_SERVICE_BASE_URL: "${ASSET_SERVICE_BASE_URL:-http://asset-service:8100}"
+    depends_on:
+      sam-service:
+        condition: service_healthy
+      asset-service:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000').then((response) => process.exit(response.ok ? 0 : 1)).catch(() => process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  sam-service:
+    build:
+      context: ./sam-service
+      dockerfile: Dockerfile
+    image: texture-enhancer-sam3:latest
+    container_name: texture-enhancer-sam3
+    restart: unless-stopped
+    environment:
+      HF_TOKEN: "${HF_TOKEN:-}"
+      SAM3_MODEL_ID: "${SAM3_MODEL_ID:-facebook/sam3}"
+      SAM3_DEVICE: "${SAM3_DEVICE:-cpu}"
+      SAM3_HOST: 0.0.0.0
+      SAM3_PORT: 8000
+    expose:
+      - "8000"
+    volumes:
+      - sam3-model-cache:/models/huggingface
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "--fail",
+          "http://127.0.0.1:8000/healthz",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  asset-service:
+    build:
+      context: ./asset-service
+      dockerfile: Dockerfile
+    image: texture-enhancer-asset-service:latest
+    container_name: texture-enhancer-asset-service
+    restart: unless-stopped
+    environment:
+      ASSET_SERVICE_HOST: 0.0.0.0
+      ASSET_SERVICE_PORT: 8100
+    expose:
+      - "8100"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "--fail",
+          "http://127.0.0.1:8100/healthz",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+volumes:
+  sam3-model-cache:
