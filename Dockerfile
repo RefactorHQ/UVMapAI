@@ -6,7 +6,6 @@ WORKDIR /app
 FROM base AS deps
 
 COPY package.json package-lock.json ./
-COPY glTF-Sample-Viewer/package.json glTF-Sample-Viewer/package-lock.json ./glTF-Sample-Viewer/
 RUN npm ci --ignore-scripts
 
 FROM base AS builder
