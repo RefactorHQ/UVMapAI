@@ -41,7 +41,13 @@ One tool, start to finish.
 ## Demo
 
 <p align="center">
-  <video src="./public/uvmap-demo.mp4" controls muted playsinline width="100%"></video>
+  <a href="./public/uvmap-demo.mp4">
+    <img src="public/helmet-thumbnail.png" alt="Watch the UVMAP AI demo video" width="100%" />
+  </a>
+</p>
+
+<p align="center">
+  Click the preview to watch the demo video.
 </p>
 
 ## What it does
