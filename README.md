@@ -9,8 +9,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/refactor-nl/texture-enhancer/actions/workflows/ci.yml">
-    <img src="https://github.com/refactor-nl/texture-enhancer/actions/workflows/ci.yml/badge.svg" alt="CI" />
+  <a href="https://github.com/RefactorHQ/UVMapAI/actions/workflows/ci.yml">
+    <img src="https://github.com/RefactorHQ/UVMapAI/actions/workflows/ci.yml/badge.svg" alt="Build status" />
   </a>
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT" />
@@ -41,7 +41,7 @@ One tool, start to finish.
 ## Demo
 
 <p align="center">
-  <a href="./public/uvmap-demo.mp4">Watch the demo video</a>
+  <video src="./public/uvmap-demo.mp4" controls muted playsinline width="100%"></video>
 </p>
 
 ## What it does
@@ -71,8 +71,8 @@ One tool, start to finish.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/refactor-nl/texture-enhancer.git
-cd texture-enhancer
+git clone https://github.com/RefactorHQ/UVMapAI.git
+cd UVMapAI
 ```
 
 ### 2. Configure environment
