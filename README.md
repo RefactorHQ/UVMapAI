@@ -40,15 +40,7 @@ One tool, start to finish.
 
 ## Demo
 
-<p align="center">
-  <a href="./public/uvmap-demo.mp4">
-    <img src="public/helmet-thumbnail.png" alt="Watch the UVMAP AI demo video" width="100%" />
-  </a>
-</p>
-
-<p align="center">
-  Click the preview to watch the demo video.
-</p>
+https://github.com/user-attachments/assets/f6473bcf-db62-4087-87d9-1409401dbb1d
 
 ## What it does
 
