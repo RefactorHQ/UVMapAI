@@ -1326,10 +1326,6 @@ export default function ModelViewer({
                     if (state.userCamera?.perspective) {
                         state.userCamera.perspective.aspectRatio = width / height;
                     }
-
-                    if (state.gltf) {
-                        state.userCamera.fitViewToScene(state.gltf, state.sceneIndex);
-                    }
                 }
 
                 if (
