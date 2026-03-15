@@ -20,7 +20,7 @@
     "npm": ">=10.0.0"
   },
   "dependencies": {
-    "@google/genai": "^1.44.0",
+    "@google/genai": "^1.45.0",
     "@khronosgroup/gltf-viewer": "^1.1.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
